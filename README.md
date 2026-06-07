@@ -1,50 +1,85 @@
-Blog Platform
+# 📝 Blog Platform
 
-A simple Blog Platform built using Node.js, Express.js, EJS, MongoDB, and Mongoose.
-This project allows users to create, view, edit, delete, and feature blog posts.
+A full-stack blog management application built with **Node.js**, **Express.js**, **MongoDB Atlas**, **Mongoose**, and **EJS**.
 
-Features
-Add new blog posts
-View all blogs on the home page
-Read full blog details
-Edit existing blogs
-Delete blogs
-Mark blogs as featured/unfeatured
-View featured blogs separately
-MongoDB Atlas integration
-MVC-based project structure
-Environment variables using .env
+This project allows users to create, edit, delete, and manage blog posts while practicing real-world backend concepts such as CRUD operations, MVC architecture, dynamic routing, and database integration.
 
-Tech Stack
-Node.js
-Express.js
-EJS
-MongoDB Atlas
-Mongoose
-dotenv
-CSS
+---
 
-Main Routes
-GET / - Show all blogs
-GET /add-blog - Show add blog form
-POST /add-blog - Create new blog
-GET /blog/:id - Show blog details
-GET /edit-blog/:id - Show edit form
-POST /edit-blog/:id - Update blog
-POST /delete-blog/:id - Delete blog
-POST /toggle-featured/:id - Toggle featured status
-GET /featured - Show featured blogs
+## 🚀 Features
 
-Learning Outcomes
+✅ Create new blog posts
 
-This project helped me understand:
+✅ View all blogs on the home page
 
-Express routing
-MVC folder structure
-EJS templates
-MongoDB Atlas connection
-Mongoose schemas and models
-CRUD operations with MongoDB
-Dynamic routes using MongoDB \_id
-Environment variables
-Basic project structuring for backend applications
+✅ Read complete blog details
+
+✅ Edit existing blog posts
+
+✅ Delete blogs
+
+✅ Mark blogs as Featured / Unfeatured
+
+✅ Dedicated Featured Blogs page
+
+✅ MongoDB Atlas integration
+
+✅ MVC architecture
+
+✅ Environment variable support using `.env`
+
+---
+
+## 🛠️ Tech Stack
+
+| Technology    | Purpose               |
+| ------------- | --------------------- |
+| Node.js       | Runtime Environment   |
+| Express.js    | Backend Framework     |
+| MongoDB Atlas | Cloud Database        |
+| Mongoose      | ODM for MongoDB       |
+| EJS           | Templating Engine     |
+| dotenv        | Environment Variables |
+| CSS           | Styling               |
+
+
+---
+
+## 🌐 Routes
+
+| Method | Route                | Description            |
+| ------ | -------------------- | ---------------------- |
+| GET    | /                    | Show all blogs         |
+| GET    | /add-blog            | Add blog page          |
+| POST   | /add-blog            | Create blog            |
+| GET    | /blog/:id            | Blog details           |
+| GET    | /edit-blog/:id       | Edit page              |
+| POST   | /edit-blog/:id       | Update blog            |
+| POST   | /delete-blog/:id     | Delete blog            |
+| POST   | /toggle-featured/:id | Toggle featured status |
+| GET    | /featured            | Show featured blogs    |
+
+---
+
+## 📚 Learning Outcomes
+
+Through this project I practiced:
+
+* Express Routing
+* MVC Architecture
+* MongoDB Atlas Integration
+* Mongoose Schemas & Models
+* CRUD Operations
+* Dynamic Routing with MongoDB IDs
+* EJS Templating
+* Environment Variables
+* Project Structuring & Refactoring
+
+
+---
+
+## 👨‍💻 Author
+
+**Harsh Bhuteja**
+
+Backend & Full Stack Development Learning Journey 🚀
