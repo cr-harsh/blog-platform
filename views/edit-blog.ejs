@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Edit Blog: <%= blog.title %> - DevBlog</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="container nav-container">
+      <a href="/" class="nav-brand">✍️ <span>DevBlog</span></a>
+      <div class="nav-menu">
+        <a href="/" class="nav-link">Home</a>
+        <a href="/featured" class="nav-link">Featured Blogs</a>
+        <a href="/add-blog" class="btn btn-primary">Add Blog</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <main class="container">
+    <div class="form-card">
+      <h1 class="form-title">Edit Blog Post</h1>
+
+      <form method="POST" action="/edit-blog/<%= blog._id %>">
+        <!-- Title Input -->
+        <div class="form-group">
+          <label class="form-label">Title</label>
+          <input type="text" name="title" class="form-control" value="<%= blog.title %>" required>
+        </div>
+
+        <!-- Short Description Input -->
+        <div class="form-group">
+          <label class="form-label">Short Description</label>
+          <input type="text" name="shortDescription" class="form-control" value="<%= blog.shortDescription %>" required>
+        </div>
+
+        <!-- Content Textarea -->
+        <div class="form-group">
+          <label class="form-label">Content</label>
+          <textarea name="content" class="form-control" required><%= blog.content %></textarea>
+        </div>
+
+        <!-- Category Select -->
+        <div class="form-group">
+          <label class="form-label">Category</label>
+          <select name="category" class="form-control" required>
+            <option value="Technology" <%= blog.category === "Technology" ? "selected" : "" %>>Technology</option>
+            <option value="Environment" <%= blog.category === "Environment" ? "selected" : "" %>>Environment</option>
+            <option value="Politics" <%= blog.category === "Politics" ? "selected" : "" %>>Politics</option>
+            <option value="Sensex" <%= blog.category === "Sensex" ? "selected" : "" %>>Sensex</option>
+            <option value="Food" <%= blog.category === "Food" ? "selected" : "" %>>Food</option>
+            <option value="Travel" <%= blog.category === "Travel" ? "selected" : "" %>>Travel</option>
+            <option value="Business" <%= blog.category === "Business" ? "selected" : "" %>>Business</option>
+          </select>
+        </div>
+
+        <!-- Date Input -->
+        <div class="form-group">
+          <label class="form-label">Publication Date</label>
+          <input type="date" name="date" class="form-control" value="<%= blog.date %>" required>
+        </div>
+
+        <!-- Featured Checkbox -->
+        <div class="form-group" style="margin-top: 32px;">
+          <label class="form-checkbox-label">
+            <input type="checkbox" name="isFeatured" class="form-checkbox" <%= blog.isFeatured ? "checked" : "" %>>
+            Feature this post on the home and featured pages
+          </label>
+        </div>
+
+        <!-- Form Actions -->
+        <div class="form-actions">
+          <a href="/" class="btn btn-outline">Cancel</a>
+          <button type="submit" class="btn btn-primary">Save Changes</button>
+        </div>
+      </form>
+    </div>
+  </main>
+</body>
+</html>

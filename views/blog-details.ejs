@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= blog.title %> - DevBlog</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="container nav-container">
+      <a href="/" class="nav-brand">✍️ <span>DevBlog</span></a>
+      <div class="nav-menu">
+        <a href="/" class="nav-link">Home</a>
+        <a href="/featured" class="nav-link">Featured Blogs</a>
+        <a href="/add-blog" class="btn btn-primary">Add Blog</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <main class="container">
+    <article class="post-detail-container">
+      <!-- Article Meta -->
+      <div class="post-detail-meta">
+        <span class="badge badge-<%= blog.category.toLowerCase() %>"><%= blog.category %></span>
+        <time class="post-detail-date"><%= blog.date %></time>
+        
+        <!-- Featured Indicator Button (styled according to status, non-clickable in details view) -->
+        <button class="btn-featured-toggle <%= blog.isFeatured ? 'featured-active' : 'featured-inactive' %>" style="opacity: <%= blog.isFeatured ? '1' : '0.5' %>; cursor: default; pointer-events: none;" tabindex="-1">
+          <%= blog.isFeatured ? '★ Featured' : '☆ Not Featured' %>
+        </button>
+      </div>
+
+      <!-- Article Title -->
+      <h1 class="post-detail-title"><%= blog.title %></h1>
+
+      <!-- Short Description / Lead Paragraph -->
+      <div class="post-detail-lead">
+        <%= blog.shortDescription %>
+      </div>
+
+      <!-- Full Content -->
+      <div class="post-detail-content">
+        <% /* Split content by newlines to render paragraphs nicely */ %>
+        <% const paragraphs = blog.content.split('\n').filter(p => p.trim() !== ''); %>
+        <% if (paragraphs.length > 0) { %>
+          <% paragraphs.forEach(p => { %>
+            <p><%= p %></p>
+          <% }) %>
+        <% } else { %>
+          <p><%= blog.content %></p>
+        <% } %>
+      </div>
+
+      <!-- Article Footer / Navigation -->
+      <footer class="post-detail-footer">
+        <a href="/" class="btn btn-outline">← Back to Home</a>
+        <a href="/edit-blog/<%= blog._id %>" class="btn btn-primary">Edit Blog</a>
+      </footer>
+    </article>
+  </main>
+</body>
+</html>
